@@ -1,12 +1,13 @@
 document.getElementById('showVideoBtn').addEventListener('click', function() {
     var videoContainer = document.getElementById('videoContainer');
-    var video = document.getElementById('myVideo');
     
     videoContainer.classList.toggle('hidden');
+    
     if (!videoContainer.classList.contains('hidden')) {
-        video.play();
+        var iframe = document.getElementById('rickRollVideo');
+        iframe.src += "?autoplay=1"; // start the video with autoplay
     } else {
-        video.pause();
-        video.currentTime = 0; // reset video to start
+        var iframe = document.getElementById('rickRollVideo');
+        iframe.src = iframe.src.replace("?autoplay=1", ""); // stop the video
     }
 });
